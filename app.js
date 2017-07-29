@@ -27,6 +27,18 @@ app.get('/api/genres', function(req, res){
     res.json(genres);
   });
 });
+// new genre
+app.post('/api/genres', function(req, res){
+  var genre = req.body;
+  Genre.addGenre(genre, function(err, genre){
+    if (err) {
+      throw res.json({status: false});
+    } else {
+      res.json({status: true});
+    }
+  });
+});
+
 
 // list of all the books
 app.get('/api/books', function(req, res){
@@ -44,6 +56,17 @@ app.get('/api/books/:_id', function(req, res){
       throw err;
     }
     res.json(book);
+  });
+});
+// new book
+app.post('/api/books', function(req, res){
+  var book = req.body;
+  Book.addBook(book, function(err, book){
+    if (err) {
+      throw err;
+    } else {
+      res.json({status: true});
+    }
   });
 });
 

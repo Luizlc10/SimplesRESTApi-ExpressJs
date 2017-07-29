@@ -43,3 +43,7 @@ module.exports.getBooks = function(callback, limit){
 module.exports.getBookById = function(id, callback){
   Book.findById(id, callback);
 };
+// add book
+module.exports.addBook = function(book, callback){
+  Book.create(book, callback);
+};
