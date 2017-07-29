@@ -17,5 +17,27 @@ app.get('/', function(req, res){
   res.send('Please, use /api/books or /api/genres');
 });
 
+
+// list of all the genres
+app.get('/api/genres', function(req, res){
+  Genre.getGenres(function(err, genres){
+    if (err) {
+      throw err;
+    }
+    res.json(genres);
+  });
+});
+
+// list of all the books
+app.get('/api/books', function(req, res){
+  Book.getBooks(function(err, books){
+    if (err) {
+      throw err;
+    }
+    res.json(books);
+  });
+});
+
+
 app.listen(3000);
 console.log('server runing on 3000..');

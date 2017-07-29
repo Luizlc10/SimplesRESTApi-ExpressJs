@@ -34,3 +34,8 @@ var bookSchema = mongoose.Schema({
 });
 
 var Book = module.exports = mongoose.model('Book', bookSchema);
+
+// get books
+module.exports.getBooks = function(callback, limit){
+  Book.find(callback).limit(limit);
+};
