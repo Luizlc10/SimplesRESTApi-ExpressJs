@@ -39,3 +39,7 @@ var Book = module.exports = mongoose.model('Book', bookSchema);
 module.exports.getBooks = function(callback, limit){
   Book.find(callback).limit(limit);
 };
+// get book by id
+module.exports.getBookById = function(id, callback){
+  Book.findById(id, callback);
+};
