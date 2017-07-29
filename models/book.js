@@ -1,0 +1,36 @@
+var mongoose = require('mongoose');
+
+// book schema
+var bookSchema = mongoose.Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  genre: {
+    type: String
+  },
+  description: {
+    type: String
+  },
+  author: {
+    type: String
+  },
+  publisher: {
+    type: String
+  },
+  pages: {
+    type: String
+  },
+  image_url: {
+    type: String
+  },
+  buy_url: {
+    type: String
+  },
+  create_date: {
+    type: String,
+    default: Date.now
+  }
+});
+
+var Book = module.exports = mongoose.model('Book', bookSchema);
