@@ -30,3 +30,8 @@ module.exports.updateGenre = function(id, genre, options, callback){
 	};
 	Genre.findOneAndUpdate(query, update, options, callback);
 };
+// delete book
+module.exports.deleteGenre = function(id, callback){
+  var query = {_id: id};
+  Genre.remove(query, callback);
+};
